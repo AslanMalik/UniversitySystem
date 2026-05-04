@@ -16,7 +16,7 @@ public class Tester {
         Student s2 = new Student("Zhaisan", "Sarsengaliyev", "16/08/2001", "8 771-191-23-49", "zhaisansars@gmail.com", "12345", "19B030552", 2, Faculty.FIT, Degree.BACHELOR); 
         Database.users.add(s1); 
         Database.users.add(s2); 
- 
+
         // ========== УЧИТЕЛЯ ==========
         Teacher t1 = new Teacher("Oscar", "Cardozo", "20/05/1983", "8 707-123-56-22", "oscar@gmail.com", "teacher123", Status.SENIOR_LECTOR, "11 years"); 
         Teacher t2 = new Teacher("Alimzhan", "Amanov", "26/03/1995", "8 701-947-65-55", "amanov.a@gmail.com", "teacher456", Status.LECTOR, "5 years"); 
