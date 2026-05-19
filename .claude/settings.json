@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(ls \"C:\\\\Program Files\\\\\" 2>&1)",
+      "Read(//c//**)"
+    ]
+  }
+}

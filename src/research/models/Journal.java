@@ -1,6 +1,6 @@
 package models;
 
-import research.interfaces.Subscriber;
+import interfaces.Subscriber;
 
 import java.io.Serializable;
 import java.util.*;

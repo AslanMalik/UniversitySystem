@@ -1,4 +1,4 @@
-package research.interfaces;
+package interfaces;
 
 import models.*;
 import exceptions.*;

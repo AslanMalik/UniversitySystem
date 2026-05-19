@@ -1,6 +1,6 @@
-package research.models;
+package models;
 
-import proj.enums.CitationFormat;
+import enums.CitationFormat;
 
 import java.io.Serializable;
 import java.util.*;
