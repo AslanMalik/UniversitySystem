@@ -1,14 +1,9 @@
 package proj;
 
-
-/**
-* @generated
-*/
 public class Transcript {
-    
+
     private String courseName;
     private double GPA;
-
 
     public Transcript(String courseName, double GPA) {
         this.courseName = courseName;
@@ -29,16 +24,9 @@ public class Transcript {
 
     public void setGPA(double GPA) {
         this.GPA = GPA;
-    }    
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
-    public void calculateGPA() {
-        //TODO
     }
-    
+
+    public void calculateGPA() {
+    }
+
 }

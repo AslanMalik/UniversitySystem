@@ -7,12 +7,12 @@ public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
     private String title;
     private String[] authors;
     private String journal;
-    private int pages; // number of pages
+    private int pages;
     private int citations;
     private Date publicationDate;
     private String doi;
-    
-    public ResearchPaper(String title, String[] authors, String journal, 
+
+    public ResearchPaper(String title, String[] authors, String journal,
                          int pages, Date publicationDate, String doi) {
         this.title = title;
         this.authors = authors;
@@ -22,8 +22,7 @@ public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
         this.publicationDate = publicationDate;
         this.doi = doi;
     }
-    
-    // Getters
+
     public String getTitle() { return title; }
     public String[] getAuthors() { return authors; }
     public String getJournal() { return journal; }
@@ -31,16 +30,15 @@ public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
     public int getCitations() { return citations; }
     public Date getPublicationDate() { return publicationDate; }
     public String getDoi() { return doi; }
-    
+
     public void addCitation() { this.citations++; }
-    
-    // Форматирование цитирования (Strategy pattern)
+
     public String getCitation(CitationFormat format) {
         String authorsStr = String.join(", ", authors);
         if (format == CitationFormat.PLAIN_TEXT) {
-            return authorsStr + ". \"" + title + "\" " + journal + 
+            return authorsStr + ". \"" + title + "\" " + journal +
                    " (" + publicationDate.toString() + "): " + pages + " p.";
-        } else { // BIBTEX
+        } else {
             return "@article{" + doi + ",\n" +
                    "  author = {" + authorsStr + "},\n" +
                    "  title = {" + title + "},\n" +
@@ -50,12 +48,12 @@ public class ResearchPaper implements Serializable, Comparable<ResearchPaper> {
                    "}";
         }
     }
-    
+
     @Override
     public int compareTo(ResearchPaper o) {
-        return Integer.compare(o.citations, this.citations); // sort by citations desc
+        return Integer.compare(o.citations, this.citations);
     }
-    
+
     @Override
     public String toString() {
         return title + " (" + citations + " citations)";

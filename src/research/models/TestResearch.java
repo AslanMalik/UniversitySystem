@@ -8,20 +8,10 @@ import interfaces.Subscriber;
 
 import java.util.*;
 
-/**
- * Smoke-tests every Participant 3 fix (research/models/*).
- * Run this class directly (it has its own main).
- *
- * For Participant 2 fixes run: src/proj/TestAll.java
- */
 public class TestResearch {
 
     static int passed = 0;
     static int failed = 0;
-
-    // ================================================================
-    //  Minimal Researcher stub used across tests
-    // ================================================================
 
     static class MockResearcher implements Researcher, Subscriber {
         private final String name;
@@ -43,8 +33,6 @@ public class TestResearch {
         @Override public String toString() { return "Mock(" + name + ")"; }
     }
 
-    // ================================================================
-
     public static void main(String[] args) {
         sep("PARTICIPANT 3  —  research/models/*");
         testResearchPaper();
@@ -56,10 +44,6 @@ public class TestResearch {
         System.out.printf("%n=== research/models/* RESULT: %d passed, %d failed ===%n",
                 passed, failed);
     }
-
-    // ================================================================
-    //  ResearchPaper
-    // ================================================================
 
     static void testResearchPaper() {
         System.out.println("\n--- ResearchPaper ---");
@@ -85,9 +69,8 @@ public class TestResearch {
         check("getCitation(BIBTEX) contains author field", bibtex.contains("author={Alice, Bob}"));
         check("getCitation(BIBTEX) contains journal field",bibtex.contains("journal={Nature}"));
 
-        // compareTo — descending citations
         ResearchPaper p2 = new ResearchPaper("Old Paper", Arrays.asList("Carol"));
-        p2.addCitation(); // 1 citation; p has 2
+        p2.addCitation();
         check("compareTo() p(2) < p2(1) in descending order — p comes first",
                 p.compareTo(p2) < 0);
 
@@ -100,10 +83,6 @@ public class TestResearch {
         check("hashCode() consistent", p.hashCode() == pSame.hashCode());
         check("toString() not null",   p.toString() != null);
     }
-
-    // ================================================================
-    //  ResearchProject
-    // ================================================================
 
     static void testResearchProject() {
         System.out.println("\n--- ResearchProject ---");
@@ -143,10 +122,6 @@ public class TestResearch {
         check("hashCode() consistent", proj.hashCode() == proj2.hashCode());
     }
 
-    // ================================================================
-    //  DiplomaProject
-    // ================================================================
-
     static void testDiplomaProject() {
         System.out.println("\n--- DiplomaProject ---");
 
@@ -171,10 +146,6 @@ public class TestResearch {
         check("hashCode() consistent", dp.hashCode() == dp2.hashCode());
     }
 
-    // ================================================================
-    //  Journal
-    // ================================================================
-
     static void testJournal() {
         System.out.println("\n--- Journal ---");
 
@@ -187,7 +158,7 @@ public class TestResearch {
 
         journal.subscribe(sub1);
         journal.subscribe(sub2);
-        journal.subscribe(sub1);  // duplicate — should be ignored
+        journal.subscribe(sub1);
         check("subscribe() supports 2 subscribers, ignores duplicate",
                 journal.getSubscribers().size() == 2);
 
@@ -199,7 +170,6 @@ public class TestResearch {
         check("addPaper() adds paper to list",                  journal.getPapers().contains(paper));
         check("addPaper() notifies subscriber via update()",    sub1.lastUpdated == paper);
 
-        // publishPaper is backward-compat alias for addPaper
         ResearchPaper paper2 = new ResearchPaper("Quantum 2", Arrays.asList("Q2"));
         sub1.lastUpdated = null;
         journal.publishPaper(paper2);
@@ -212,10 +182,6 @@ public class TestResearch {
         check("equals() by name",      journal.equals(j2));
         check("hashCode() consistent", journal.hashCode() == j2.hashCode());
     }
-
-    // ================================================================
-    //  Message
-    // ================================================================
 
     static void testMessage() {
         System.out.println("\n--- Message ---");
@@ -240,10 +206,6 @@ public class TestResearch {
         check("hashCode() consistent",               msg.hashCode() == msg2.hashCode());
     }
 
-    // ================================================================
-    //  News
-    // ================================================================
-
     static void testNews() {
         System.out.println("\n--- News ---");
 
@@ -261,7 +223,6 @@ public class TestResearch {
         n1.addComment("Great news!");
         check("addComment() adds to comments list", n1.getComments().size() == 1);
 
-        // compareTo — pinned comes first
         News pinned   = new News("Pinned",   "X");
         News unpinned = new News("Unpinned", "Y");
         pinned.pin();
@@ -272,7 +233,6 @@ public class TestResearch {
         Collections.sort(newsList);
         check("sort — pinned comes first", newsList.get(0) == pinned);
 
-        // Static factories
         News rn = News.createResearchNews();
         check("createResearchNews() is pinned",           rn.isPinned());
         check("createResearchNews() topic is 'Research'", "Research".equals(rn.getTopic()));
@@ -293,10 +253,6 @@ public class TestResearch {
         check("equals() by title",     n1.equals(n2));
         check("hashCode() consistent", n1.hashCode() == n2.hashCode());
     }
-
-    // ================================================================
-    //  Helper
-    // ================================================================
 
     static void sep(String title) {
         System.out.println("\n====================================================");

@@ -3,11 +3,8 @@ package proj;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
-* @generated
-*/
 public class User implements Comparable, Serializable {
-    
+
     private String name;
     private String surname;
     private String birthDate;
@@ -29,7 +26,6 @@ public class User implements Comparable, Serializable {
         this.login = this.name.substring(0, 1).toLowerCase() + "_" + this.surname.toLowerCase() + "@kbtu.kz";
         this.password = password;
     }
-
 
     public String getName() {
         return this.name;
@@ -116,32 +112,25 @@ public class User implements Comparable, Serializable {
             "}";
     }
 
-
-    //                          Operations                                  
-    
     public String viewNewsTab() {
         String ans = "";
         int i = 0;
         for (News news : Database.news) {
             i ++;
-            ans += i + ") News title: " + news.getTitle() 
-            + "\n    Description: " + news.getText() 
+            ans += i + ") News title: " + news.getTitle()
+            + "\n    Description: " + news.getText()
             + "\n    Post Date: " + news.getPostDate() + "\n\n";
         }
         return ans;
     }
-    /**
-    * @generated
-    */
+
     public boolean signIn(String login, String password) {
         if(login.equals(this.login) && password.equals(this.password)) {
             return true;
         }
         return false;
     }
-    /**
-    * @generated
-    */
+
     public boolean changePassword(String oldPassword, String newPassword) {
         if(oldPassword.equals(this.password)) {
             password = newPassword;
@@ -152,8 +141,7 @@ public class User implements Comparable, Serializable {
 
     @Override
     public int compareTo(Object o) {
-        // TODO Auto-generated method stub
         return 0;
     }
-    
+
 }

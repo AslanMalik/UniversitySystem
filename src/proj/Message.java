@@ -3,11 +3,8 @@ package proj;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
-* @generated
-*/
 public class Message implements Serializable {
-    
+
     private String messageFrom;
     private String messageTo;
     private String title;
@@ -61,11 +58,6 @@ public class Message implements Serializable {
     public void setMsgDate(Date msgDate) {
         this.msgDate = msgDate;
     }
-    
-    
-
-    //                          Operations                                  
-
 
     @Override
     public String toString() {

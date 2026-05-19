@@ -10,64 +10,53 @@ public class Tester {
 
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
     public static void main(String[] args) throws IOException, ClassNotFoundException, CreditOverFlow {
-        
-        // ========== СТУДЕНТЫ ==========
-        Student s1 = new Student("Ernazar", "Tolegen", "23/10/2001", "8 777-777-77-77", "ernazartolegen@gmail.com", "123456", "19B030729", 1, Faculty.FIT, Degree.BACHELOR); 
-        Student s2 = new Student("Zhaisan", "Sarsengaliyev", "16/08/2001", "8 771-191-23-49", "zhaisansars@gmail.com", "12345", "19B030552", 2, Faculty.FIT, Degree.BACHELOR); 
-        Database.users.add(s1); 
-        Database.users.add(s2); 
 
-        // ========== УЧИТЕЛЯ ==========
-        Teacher t1 = new Teacher("Oscar", "Cardozo", "20/05/1983", "8 707-123-56-22", "oscar@gmail.com", "teacher123", Status.SENIOR_LECTOR, "11 years"); 
-        Teacher t2 = new Teacher("Alimzhan", "Amanov", "26/03/1995", "8 701-947-65-55", "amanov.a@gmail.com", "teacher456", Status.LECTOR, "5 years"); 
-        Database.users.add(t1); 
-        Database.users.add(t2); 
- 
-        // ========== МЕНЕДЖЕРЫ ==========
-        Manager m1 = new Manager("Dana", "Akhmetzhan", "21/01/1985", "8 707-111-11-11", "dana@gmail.com", "manager123", Managers.DEPARTMENTS); 
-        Manager m2 = new Manager("Nazym", "Aidarkhanova", "8/03/1983", "8 707-112-12-12", "nazym@gmail.com", "manager456", Managers.OR); 
-        Database.users.add(m1); 
-        Database.users.add(m2); 
- 
-        // ========== АДМИНИСТРАТОРЫ ==========
-        Admin a1 = new Admin("Admin1", "Admin1", "22/02/1972", "8 707-222-22-22", "admin1@gmail.com", "admin123"); 
-        Admin a2 = new Admin("Admin2", "Admin2", "22/02/1973", "8 707-222-22-23", "admin2@gmail.com", "admin456"); 
-        Database.users.add(a1); 
-        Database.users.add(a2); 
- 
-        // ========== БИБЛИОТЕКАРИ ==========
-        Librarian l1 = new Librarian("Librarian1", "Librarianov1", "21/12/1960", "8 777-123-34-55", "lib1@gmail.com", "lib123"); 
-        Librarian l2 = new Librarian("Librarian2", "Librarianov2", "20/12/1961", "8 777-123-34-51", "lib2@gmail.com", "lib456"); 
-        Database.users.add(l1); 
-        Database.users.add(l2); 
- 
-        // ========== КУРСЫ ==========
-        Course c1 = new Course("Object-oriented programming", "Object-oriented programming (OOP) is a programming paradigm based on the concept of objects, which can contain data and code: data in the form of fields (often known as attributes or properties), and code, in the form of procedures (often known as methods).", 3, "CSCI2106"); 
-        Course c2 = new Course("Databases", 3, "CSCI2104"); 
-        Database.courses.add(c1); 
+        Student s1 = new Student("Ernazar", "Tolegen", "23/10/2001", "8 777-777-77-77", "ernazartolegen@gmail.com", "123456", "19B030729", 1, Faculty.FIT, Degree.BACHELOR);
+        Student s2 = new Student("Zhaisan", "Sarsengaliyev", "16/08/2001", "8 771-191-23-49", "zhaisansars@gmail.com", "12345", "19B030552", 2, Faculty.FIT, Degree.BACHELOR);
+        Database.users.add(s1);
+        Database.users.add(s2);
+
+        Teacher t1 = new Teacher("Oscar", "Cardozo", "20/05/1983", "8 707-123-56-22", "oscar@gmail.com", "teacher123", Status.SENIOR_LECTOR, "11 years");
+        Teacher t2 = new Teacher("Alimzhan", "Amanov", "26/03/1995", "8 701-947-65-55", "amanov.a@gmail.com", "teacher456", Status.LECTOR, "5 years");
+        Database.users.add(t1);
+        Database.users.add(t2);
+
+        Manager m1 = new Manager("Dana", "Akhmetzhan", "21/01/1985", "8 707-111-11-11", "dana@gmail.com", "manager123", Managers.DEPARTMENTS);
+        Manager m2 = new Manager("Nazym", "Aidarkhanova", "8/03/1983", "8 707-112-12-12", "nazym@gmail.com", "manager456", Managers.OR);
+        Database.users.add(m1);
+        Database.users.add(m2);
+
+        Admin a1 = new Admin("Admin1", "Admin1", "22/02/1972", "8 707-222-22-22", "admin1@gmail.com", "admin123");
+        Admin a2 = new Admin("Admin2", "Admin2", "22/02/1973", "8 707-222-22-23", "admin2@gmail.com", "admin456");
+        Database.users.add(a1);
+        Database.users.add(a2);
+
+        Librarian l1 = new Librarian("Librarian1", "Librarianov1", "21/12/1960", "8 777-123-34-55", "lib1@gmail.com", "lib123");
+        Librarian l2 = new Librarian("Librarian2", "Librarianov2", "20/12/1961", "8 777-123-34-51", "lib2@gmail.com", "lib456");
+        Database.users.add(l1);
+        Database.users.add(l2);
+
+        Course c1 = new Course("Object-oriented programming", "Object-oriented programming (OOP) is a programming paradigm based on the concept of objects, which can contain data and code: data in the form of fields (often known as attributes or properties), and code, in the form of procedures (often known as methods).", 3, "CSCI2106");
+        Course c2 = new Course("Databases", 3, "CSCI2104");
+        Database.courses.add(c1);
         Database.courses.add(c2);
 
-        // ========== КНИГИ ==========
         Book b1 = new Book("Thomas Calculus", "B1", "Thomas");
         Book b2 = new Book("Ryabushko", "B2", "Evgeniy");
         Database.books.add(b1);
         Database.books.add(b2);
 
-        // ========== РЕГИСТРАЦИИ ==========
         Database.studentRegistration.put("19B030729", c1);
-        
-        // ========== РЕЙТИНГИ УЧИТЕЛЕЙ ==========
+
         Database.teacherRatings.put("Oscar", 5);
         Database.teacherRatings.put("Oscar", 4);
         Database.teacherRatings.put("Oscar", 4);
 
-        // ========== НОВОСТИ ==========
         News n1 = new News("1", "Registration 2021-2022 Fall", "Registration will start 10th of July");
         News n2 = new News("2", "Books", "Here should be text");
         Database.news.add(n1);
         Database.news.add(n2);
 
-        // ========== ФАЙЛЫ КУРСОВ ==========
         File f1 = new File("OOP_Project", "CSCI2106", "Here should be file info");
         File f2 = new File("OOP_Diagram", "CSCI2106", "Here should be another file info");
         File f3 = new File("DB_Lab1", "CSCI2104", "This is your labwork");
@@ -77,47 +66,37 @@ public class Tester {
         Database.files.add(f3);
         Database.files.add(f4);
 
-        // ========== ОЦЕНКИ ==========
         Mark ma1 = new Mark("Object-oriented programming", "19B030729", 24.0, 24.6, 40.0);
         Mark ma2 = new Mark("Databases", "19B030729", 30.0, 29.0, 37.0);
         Database.marks.add(ma1);
         Database.marks.add(ma2);
 
-        // ========== СООБЩЕНИЯ ==========
         Message me1 = new Message("Alimzhan", "o_cardozo@kbtu.kz", "Greetings", "Hello Oscar. My name is Alimzhan and Welcome to KBTU.");
         Message me2 = new Message("Oscar", "a_amanov@kbtu.kz", "Hi", "Good morning Alimzhan. Thank you!");
         Database.messages.add(me1);
         Database.messages.add(me2);
 
-        // ========== ЗАКАЗЫ КНИГ ==========
         Database.orders.put("19B030729", b1);
         Database.orders.put("19B030729", b2);
 
-        // ========== НОВЫЕ ТЕСТОВЫЕ ДАННЫЕ ДЛЯ RESEARCHER ==========
-
-        // Создаем Researcher-преподавателя (Professor всегда Researcher) - ТЕПЕРЬ TEACHER ИМПЛЕМЕНТИРУЕТ RESEARCHER
         Teacher researcherTeacher = new Teacher("Research", "Professor", "15/03/1975",
             "8 777-111-22-33", "research@gmail.com", "prof123", Status.PROFESSOR, "20 years");
         Database.users.add(researcherTeacher);
 
-        // Создаем GraduateStudent (Master)
         GraduateStudent gradStudent = new GraduateStudent("Master", "Student", "01/01/2000",
-            "8 777-000-00-00", "master@gmail.com", "master123", "MS001", 1, 
-            Faculty.FIT, Degree.MASTER, researcherTeacher);  // Больше не нужен каст!
+            "8 777-000-00-00", "master@gmail.com", "master123", "MS001", 1,
+            Faculty.FIT, Degree.MASTER, researcherTeacher);
         Database.users.add(gradStudent);
 
-        // Создаем PhD Student
         GraduateStudent phdStudent = new GraduateStudent("PhD", "Candidate", "15/05/1998",
-            "8 777-111-22-33", "phd@gmail.com", "phd123", "PHD001", 3, 
-            Faculty.FIT, Degree.PHD, researcherTeacher);  // Больше не нужен каст!
+            "8 777-111-22-33", "phd@gmail.com", "phd123", "PHD001", 3,
+            Faculty.FIT, Degree.PHD, researcherTeacher);
         Database.users.add(phdStudent);
 
-        // Создаем Tech Support Specialist
         TechSupportSpecialist tech = new TechSupportSpecialist("Tech", "Support", "10/10/1990",
             "8 777-555-66-77", "tech@gmail.com", "tech123");
         Database.users.add(tech);
 
-        // Добавляем Research Papers
         ResearchPaper paper1 = new ResearchPaper(
             "AI in Modern Education",
             new String[]{"Prof. Research", "Master Student"},
@@ -144,7 +123,6 @@ public class Tester {
         researcherTeacher.addResearchPaper(paper1);
         researcherTeacher.addResearchPaper(paper2);
 
-        // Добавляем Research Project
         ResearchProject project = new ResearchProject("AI for Education Improvement");
         try {
             project.addParticipant(researcherTeacher);
@@ -156,15 +134,12 @@ public class Tester {
             System.err.println(e.getMessage());
         }
 
-        // Добавляем Support Request
         SupportRequest request = new SupportRequest("REQ001", "Projector is not working in room 305", tech.getLogin());
         tech.addRequest(request);
         Database.supportRequests.add(request);
 
-        // Добавляем Complaint от учителя
         t1.sendComplaint("Bad Student", "Cheating on the final exam", UrgencyLevel.HIGH);
 
-        // Research Journal (Observer pattern)
         ResearchJournal journal = new ResearchJournal("KBTU Research Journal");
         journal.subscribe(gradStudent);
         journal.publishPaper(paper1);
@@ -178,7 +153,6 @@ public class Tester {
 
         Database.save();
 
-        // ========== АВТОРИЗАЦИЯ ==========
         System.out.println("\nPress q to quit.");
         System.out.println("Enter your login: ");
         String input = reader.readLine();
@@ -218,7 +192,7 @@ public class Tester {
 
                             switch(chosen) {
                                 case 1:
-                                    System.out.println(st.getAllInfo()); 
+                                    System.out.println(st.getAllInfo());
                                     break;
                                 case 2:
                                     System.out.println(st.viewCourses());
@@ -320,7 +294,7 @@ public class Tester {
 
                             switch(chosen) {
                                 case 1:
-                                    System.out.println(gs.getAllInfo()); 
+                                    System.out.println(gs.getAllInfo());
                                     break;
                                 case 2:
                                     System.out.println(gs.viewCourses());
@@ -424,9 +398,9 @@ public class Tester {
                                 "    [13]         View news\n" +
                                 "    [14]         View my research papers\n" +
                                 "    [15]         Calculate my H-Index\n" +
-                                "    [16]         Quit\n" + 
+                                "    [16]         Quit\n" +
                                 "    [0]          Change password\n");
-        
+
                             int chosen = Integer.parseInt(reader.readLine());
                             switch(chosen){
                             case 1:
@@ -484,7 +458,7 @@ public class Tester {
                                 String courseName1 = reader.readLine();
                                 System.out.println(t.viewMarks(courseName1));
                                 break;
-                            case 9: 
+                            case 9:
                                 System.out.println("Enter your name: ");
                                 String messageFrom = reader.readLine();
                                 System.out.println("Enter employee login you want to message to: ");
@@ -497,7 +471,7 @@ public class Tester {
                                 Database.save();
                                 System.out.println("Message sent");
                                 break;
-                            case 10: 
+                            case 10:
                                 System.out.println(t.getMessages());
                                 break;
                             case 11:
@@ -542,13 +516,9 @@ public class Tester {
                             }
                         }
                     } else if(u instanceof Manager) {
-                        // ... (остальной код Manager без изменений)
                     } else if(u instanceof Admin) {
-                        // ... (остальной код Admin без изменений)
                     } else if(u instanceof Librarian) {
-                        // ... (остальной код Librarian без изменений)
                     } else if(u instanceof TechSupportSpecialist) {
-                        // ... (остальной код TechSupport без изменений)
                     }
                 } else {
                     System.out.println("Wrong password.");

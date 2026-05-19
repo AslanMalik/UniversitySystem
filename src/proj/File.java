@@ -3,21 +3,15 @@ package proj;
 import java.io.Serializable;
 import java.util.Date;
 
-/**
-* @generated
-*/
 public class File implements Serializable {
-    
-    /**
-    * @generated
-    */
+
     private String fileName;
     private String courseId;
     private String description;
     private Date postDate;
 
     public File() {
-        
+
     }
 
     public File(String fileName, String courseId, String description) {
@@ -26,7 +20,6 @@ public class File implements Serializable {
         this.description = description;
         this.postDate = new Date();
     }
-
 
     public String getFileName() {
         return this.fileName;
@@ -58,8 +51,6 @@ public class File implements Serializable {
 
     public void setPostDate(Date postDate) {
         this.postDate = postDate;
-    }    
-    
+    }
 
-    
 }

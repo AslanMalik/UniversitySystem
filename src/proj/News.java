@@ -2,17 +2,15 @@ package proj;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Vector;
 
-/**
-* @generated
-*/
 public class News implements Serializable {
-    
+
     private String id;
     private String title;
     private String text;
-    private Vector<String> comments;
+    private List<String> comments;
     private Date postDate;
 
     public News(String id, String title, String text) {
@@ -22,7 +20,6 @@ public class News implements Serializable {
         this.comments = new Vector<String>();
         this.postDate = new Date();
     }
-
 
     public String getId() {
         return this.id;
@@ -48,11 +45,11 @@ public class News implements Serializable {
         this.text = text;
     }
 
-    public Vector<String> getComments() {
+    public List<String> getComments() {
         return this.comments;
     }
 
-    public void setComments(Vector<String> comments) {
+    public void setComments(List<String> comments) {
         this.comments = comments;
     }
 
@@ -64,13 +61,6 @@ public class News implements Serializable {
         this.postDate = postDate;
     }
 
-    
-
-    //                          Operations                                  
-    
-    /**
-    * @generated
-    */
     public String getNewsInfo() {
         String s = "";
         for (News i: Database.news){
@@ -78,5 +68,4 @@ public class News implements Serializable {
         }
         return s;
     }
-    
 }

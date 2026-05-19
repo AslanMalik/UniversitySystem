@@ -2,12 +2,6 @@ package proj;
 
 import java.util.*;
 
-/**
- * Smoke-tests every Participant 2 fix (proj.*).
- * Run this class or call it from Main.main().
- *
- * For Participant 3 fixes run: src/research/models/TestResearch.java
- */
 public class TestAll {
 
     static int passed = 0;
@@ -24,22 +18,17 @@ public class TestAll {
         System.out.printf("%n=== proj.* RESULT: %d passed, %d failed ===%n", passed, failed);
     }
 
-    // ================================================================
-    //  Mark
-    // ================================================================
-
     static void testMark() {
         System.out.println("\n--- Mark ---");
 
-        // Correct weighted formula: att1*0.2 + att2*0.2 + final*0.6
         Mark m = new Mark("OOP", "S001", 30.0, 30.0, 50.0);
-        double expected = 30 * 0.2 + 30 * 0.2 + 50 * 0.6;  // = 42.0
+        double expected = 30 * 0.2 + 30 * 0.2 + 50 * 0.6;
         check("getTotal() weighted formula (expected 42.0)",
                 Math.abs(m.getTotal() - expected) < 0.001);
 
         check("isPassed() false when total=42 < 50",  !m.isPassed());
 
-        Mark m2 = new Mark("OOP", "S002", 40.0, 40.0, 60.0);  // total = 52.0
+        Mark m2 = new Mark("OOP", "S002", 40.0, 40.0, 60.0);
         check("isPassed() true when total=52 >= 50",  m2.isPassed());
 
         check("getTotalGrade() == getTotal() (compat alias)", m.getTotalGrade() == m.getTotal());
@@ -50,7 +39,7 @@ public class TestAll {
         Collections.sort(marks);
         check("sort ascending — m (42) comes first", marks.get(0) == m);
 
-        Mark high = new Mark("Math", "S003", 50.0, 50.0, 100.0);  // 10+10+60 = 80
+        Mark high = new Mark("Math", "S003", 50.0, 50.0, 100.0);
         check("convertToLetter() 80 → 'B'",  "B".equals(high.convertToLetter()));
         check("convertToGPA()   80 → '3.0'", "3.0".equals(high.convertToGPA()));
 
@@ -60,10 +49,6 @@ public class TestAll {
         check("toString() not null",              m.toString() != null);
     }
 
-    // ================================================================
-    //  Teacher
-    // ================================================================
-
     static void testTeacher() {
         System.out.println("\n--- Teacher ---");
 
@@ -72,13 +57,11 @@ public class TestAll {
 
         check("TeacherTitle field is PROFESSOR", t.getTitle() == TeacherTitle.PROFESSOR);
 
-        // addRating — running average: (4+2)/2 = 3.0
         t.addRating(4.0);
         t.addRating(2.0);
         check("addRating() running average after [4,2] = 3.0",
                 Math.abs(t.viewRating() - 3.0) < 0.001);
 
-        // putMark(Student, Mark)
         Student st = new Student("John", "Doe", "01/01/2002", "700",
                 "john@uni.edu", "pass", "S01", 1, Faculty.FIT, Degree.BACHELOR);
         Mark mk = new Mark("OOP", "S01", 40.0, 40.0, 60.0);
@@ -87,12 +70,10 @@ public class TestAll {
         check("putMark(Student, Mark) persists to Database.marks",
                 Database.marks.size() == before + 1);
 
-        // sendComplaint(List<Student>, UrgencyLevel)
         t.sendComplaint(Arrays.asList(st), UrgencyLevel.HIGH);
         check("sendComplaint(List, UrgencyLevel) adds to teacher.getComplaints()",
                 !t.getComplaints().isEmpty());
 
-        // generateReport
         Course c = new Course("OOP", "Basics", 3, "CS101");
         c.enrollStudent(st);
         String report = t.generateReport(c);
@@ -107,10 +88,6 @@ public class TestAll {
         check("hashCode() consistent", t.hashCode() == t2.hashCode());
         check("toString() not null",   t.toString() != null);
     }
-
-    // ================================================================
-    //  Course
-    // ================================================================
 
     static void testCourse() {
         System.out.println("\n--- Course ---");
@@ -136,7 +113,7 @@ public class TestAll {
                 TeacherTitle.PROFESSOR, "10y");
         c.addInstructor(t1);
         c.addInstructor(t2);
-        c.addInstructor(t1);  // duplicate — ignored
+        c.addInstructor(t1);
         check("addInstructor() supports 2 teachers, ignores duplicate",
                 c.getInstructors().size() == 2);
 
@@ -155,10 +132,6 @@ public class TestAll {
         check("toString() not null",     c.toString() != null);
     }
 
-    // ================================================================
-    //  Lesson
-    // ================================================================
-
     static void testLesson() {
         System.out.println("\n--- Lesson ---");
 
@@ -175,10 +148,6 @@ public class TestAll {
         check("equals() by type+date+room", l.equals(l3));
         check("hashCode() consistent",      l.hashCode() == l3.hashCode());
     }
-
-    // ================================================================
-    //  Manager
-    // ================================================================
 
     static void testManager() {
         System.out.println("\n--- Manager ---");
@@ -206,7 +175,7 @@ public class TestAll {
         News pjNews = new News("1", "Test", "body");
         int before = Database.news.size();
         mgr.manageNews(pjNews);
-        mgr.manageNews(pjNews);  // duplicate — ignored
+        mgr.manageNews(pjNews);
         check("manageNews() prevents duplicates in DB",
                 Database.news.size() == before + 1);
 
@@ -218,10 +187,6 @@ public class TestAll {
         check("hashCode() consistent", mgr.hashCode() == mgr2.hashCode());
         check("toString() not null",   mgr.toString() != null);
     }
-
-    // ================================================================
-    //  Enums — all required values present
-    // ================================================================
 
     static void testEnums() {
         System.out.println("\n--- Enums ---");
@@ -249,10 +214,6 @@ public class TestAll {
         check("UrgencyLevel.MEDIUM exists",     UrgencyLevel.valueOf("MEDIUM") != null);
         check("UrgencyLevel.HIGH exists",       UrgencyLevel.valueOf("HIGH") != null);
     }
-
-    // ================================================================
-    //  Helper
-    // ================================================================
 
     static void sep(String title) {
         System.out.println("\n====================================================");

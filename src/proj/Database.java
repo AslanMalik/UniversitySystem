@@ -6,182 +6,183 @@ import java.util.HashSet;
 import java.util.Vector;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.io.*;
 
 @SuppressWarnings("unchecked")
 
 public class Database implements Serializable {
-    protected static Vector<Course> courses = new Vector<>();
-    protected static Vector<User> users = new Vector<>();
-    protected static HashMap<String, Course> studentRegistration = new HashMap<>();
-    protected static HashMap<String, Integer> teacherRatings = new HashMap<>();
-    protected static Vector<Mark> marks = new Vector<>();
-    protected static HashMap<String, Book> orders = new HashMap<>();
-    protected static Vector<Message> messages = new Vector<>();
-    protected static Vector<File> files = new Vector<>();
-    protected static HashMap<String, String> logFiles = new HashMap<>();
-    protected static HashSet<Book> books = new HashSet<>();
-    protected static Vector<News> news = new Vector<>();
-    protected static Vector<Lesson> lessons = new Vector<>();
+    protected static List<Course> courses = new Vector<>();
+    protected static List<User> users = new Vector<>();
+    protected static Map<String, Course> studentRegistration = new HashMap<>();
+    protected static Map<String, Integer> teacherRatings = new HashMap<>();
+    protected static List<Mark> marks = new Vector<>();
+    protected static Map<String, Book> orders = new HashMap<>();
+    protected static List<Message> messages = new Vector<>();
+    protected static List<File> files = new Vector<>();
+    protected static Map<String, String> logFiles = new HashMap<>();
+    protected static Set<Book> books = new HashSet<>();
+    protected static List<News> news = new Vector<>();
+    protected static List<Lesson> lessons = new Vector<>();
     protected static List<Complaint> complaints = new ArrayList<>();
     protected static List<SupportRequest> supportRequests = new ArrayList<>();
     protected static List<ResearchPaper> researchPapers = new ArrayList<>();
     protected static List<ResearchProject> researchProjects = new ArrayList<>();
     protected static List<ResearchJournal> researchJournals = new ArrayList<>();
 
-    public static Vector<Course> getCourses() {
+    public static List<Course> getCourses() {
         return courses;
     }
 
-    public static void setCourses(Vector<Course> courses) {
+    public static void setCourses(List<Course> courses) {
         Database.courses = courses;
     }
 
-    public static Vector<User> getUsers() {
+    public static List<User> getUsers() {
         return users;
     }
 
-    public static void setUsers(Vector<User> users) {
+    public static void setUsers(List<User> users) {
         Database.users = users;
     }
 
-    public static HashMap<String, Course> getStudentRegistration() {
+    public static Map<String, Course> getStudentRegistration() {
         return studentRegistration;
     }
 
-    public static void setStudentRegistration(HashMap<String, Course> studentRegistration) {
+    public static void setStudentRegistration(Map<String, Course> studentRegistration) {
         Database.studentRegistration = studentRegistration;
     }
 
-    public static HashMap<String, Integer> getTeacherRatings() {
+    public static Map<String, Integer> getTeacherRatings() {
         return teacherRatings;
     }
 
-    public static void setTeacherRatings(HashMap<String, Integer> teacherRatings) {
+    public static void setTeacherRatings(Map<String, Integer> teacherRatings) {
         Database.teacherRatings = teacherRatings;
     }
 
-    public static Vector<Mark> getMarks() {
+    public static List<Mark> getMarks() {
         return marks;
     }
 
-    public static void setMarks(Vector<Mark> marks) {
+    public static void setMarks(List<Mark> marks) {
         Database.marks = marks;
     }
 
-    public static HashMap<String, Book> getOrders() {
+    public static Map<String, Book> getOrders() {
         return orders;
     }
 
-    public static void setOrders(HashMap<String, Book> orders) {
+    public static void setOrders(Map<String, Book> orders) {
         Database.orders = orders;
     }
 
-    public static Vector<Message> getMessages() {
+    public static List<Message> getMessages() {
         return messages;
     }
 
-    public static void setMessages(Vector<Message> messages) {
+    public static void setMessages(List<Message> messages) {
         Database.messages = messages;
     }
 
-    public static Vector<File> getFiles() {
+    public static List<File> getFiles() {
         return files;
     }
 
-    public static void setFiles(Vector<File> files) {
+    public static void setFiles(List<File> files) {
         Database.files = files;
     }
 
-    public static HashMap<String, String> getLogFiles() {
+    public static Map<String, String> getLogFiles() {
         return logFiles;
     }
 
-    public static void setLogFiles(HashMap<String, String> logFiles) {
+    public static void setLogFiles(Map<String, String> logFiles) {
         Database.logFiles = logFiles;
     }
 
-    public static HashSet<Book> getBooks() {
+    public static Set<Book> getBooks() {
         return books;
     }
 
-    public static void setBooks(HashSet<Book> books) {
+    public static void setBooks(Set<Book> books) {
         Database.books = books;
     }
 
-    public static Vector<News> getNews() {
+    public static List<News> getNews() {
         return news;
     }
 
-    public static void setNews(Vector<News> news) {
+    public static void setNews(List<News> news) {
         Database.news = news;
     }
 
-    public static Vector<Lesson> getLessons() {
+    public static List<Lesson> getLessons() {
         return lessons;
     }
 
-    public static void setLessons(Vector<Lesson> lessons) {
+    public static void setLessons(List<Lesson> lessons) {
         Database.lessons = lessons;
     }
-    
-    // Getters and Setters для новых полей
-    public static List<Complaint> getComplaints() { 
-        return complaints; 
-    }
-    
-    public static void setComplaints(List<Complaint> complaints) { 
-        Database.complaints = complaints; 
-    }
-    
-    public static List<SupportRequest> getSupportRequests() { 
-        return supportRequests; 
-    }
-    
-    public static void setSupportRequests(List<SupportRequest> supportRequests) { 
-        Database.supportRequests = supportRequests; 
-    }
-    
-    public static List<ResearchPaper> getResearchPapers() { 
-        return researchPapers; 
-    }
-    
-    public static void setResearchPapers(List<ResearchPaper> researchPapers) { 
-        Database.researchPapers = researchPapers; 
-    }
-    
-    public static List<ResearchProject> getResearchProjects() { 
-        return researchProjects; 
-    }
-    
-    public static void setResearchProjects(List<ResearchProject> researchProjects) { 
-        Database.researchProjects = researchProjects; 
-    }
-    
-    public static List<ResearchJournal> getResearchJournals() { 
-        return researchJournals; 
-    }
-    
-    public static void setResearchJournals(List<ResearchJournal> researchJournals) { 
-        Database.researchJournals = researchJournals; 
+
+    public static List<Complaint> getComplaints() {
+        return complaints;
     }
 
-    public static final Database instance; 
-   
+    public static void setComplaints(List<Complaint> complaints) {
+        Database.complaints = complaints;
+    }
+
+    public static List<SupportRequest> getSupportRequests() {
+        return supportRequests;
+    }
+
+    public static void setSupportRequests(List<SupportRequest> supportRequests) {
+        Database.supportRequests = supportRequests;
+    }
+
+    public static List<ResearchPaper> getResearchPapers() {
+        return researchPapers;
+    }
+
+    public static void setResearchPapers(List<ResearchPaper> researchPapers) {
+        Database.researchPapers = researchPapers;
+    }
+
+    public static List<ResearchProject> getResearchProjects() {
+        return researchProjects;
+    }
+
+    public static void setResearchProjects(List<ResearchProject> researchProjects) {
+        Database.researchProjects = researchProjects;
+    }
+
+    public static List<ResearchJournal> getResearchJournals() {
+        return researchJournals;
+    }
+
+    public static void setResearchJournals(List<ResearchJournal> researchJournals) {
+        Database.researchJournals = researchJournals;
+    }
+
+    public static final Database instance;
+
     static {
-        instance = new Database(); 
+        instance = new Database();
     }
 
     private Database() {
         this.teacherRatings = new HashMap<String, Integer>();
     }
-    
+
     public static FileInputStream fis;
     public static FileOutputStream fos;
     public static ObjectOutputStream oos;
     public static ObjectInputStream oin;
-                                   
-    
+
+
     public static void save() {
         saveCourses();
         saveFiles();
@@ -198,7 +199,7 @@ public class Database implements Serializable {
         saveResearchProjects();
         saveResearchJournals();
     }
-    
+
     public static void load() {
         loadCourses();
         loadFiles();
@@ -215,7 +216,7 @@ public class Database implements Serializable {
         loadResearchProjects();
         loadResearchJournals();
     }
-    
+
     private static void saveUsers() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("users.txt"))) {
             oot.writeObject(users);
@@ -225,7 +226,7 @@ public class Database implements Serializable {
             System.err.println("users.txt: IOException");
         }
     }
-    
+
     private static void saveMarks() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("marks.txt"))) {
             oot.writeObject(marks);
@@ -235,7 +236,7 @@ public class Database implements Serializable {
             System.err.println("marks.txt: IOException");
         }
     }
-    
+
     private static void saveCourses() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("courses.txt"))) {
             oot.writeObject(courses);
@@ -255,7 +256,7 @@ public class Database implements Serializable {
             System.err.println("news.txt: IOException");
         }
     }
-    
+
     private static void saveMessages() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("messages.txt"))) {
             oot.writeObject(messages);
@@ -265,7 +266,7 @@ public class Database implements Serializable {
             System.err.println("messages.txt: IOException");
         }
     }
-    
+
     private static void saveFiles() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("files.txt"))) {
             oot.writeObject(files);
@@ -295,7 +296,7 @@ public class Database implements Serializable {
             System.err.println("studentReg.txt: IOException");
         }
     }
-    
+
     private static void saveOrders() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("orders.txt"))) {
             oot.writeObject(orders);
@@ -305,8 +306,7 @@ public class Database implements Serializable {
             System.err.println("orders.txt: IOException");
         }
     }
-    
-    // НОВЫЕ МЕТОДЫ СОХРАНЕНИЯ
+
     private static void saveComplaints() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("complaints.txt"))) {
             oot.writeObject(complaints);
@@ -316,7 +316,7 @@ public class Database implements Serializable {
             System.err.println("complaints.txt: IOException");
         }
     }
-    
+
     private static void saveSupportRequests() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("supportRequests.txt"))) {
             oot.writeObject(supportRequests);
@@ -326,7 +326,7 @@ public class Database implements Serializable {
             System.err.println("supportRequests.txt: IOException");
         }
     }
-    
+
     private static void saveResearchPapers() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("researchPapers.txt"))) {
             oot.writeObject(researchPapers);
@@ -336,7 +336,7 @@ public class Database implements Serializable {
             System.err.println("researchPapers.txt: IOException");
         }
     }
-    
+
     private static void saveResearchProjects() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("researchProjects.txt"))) {
             oot.writeObject(researchProjects);
@@ -346,7 +346,7 @@ public class Database implements Serializable {
             System.err.println("researchProjects.txt: IOException");
         }
     }
-    
+
     private static void saveResearchJournals() {
         try (ObjectOutputStream oot = new ObjectOutputStream(new FileOutputStream("researchJournals.txt"))) {
             oot.writeObject(researchJournals);
@@ -356,12 +356,12 @@ public class Database implements Serializable {
             System.err.println("researchJournals.txt: IOException");
         }
     }
-    
+
     private static void loadUsers() {
         try {
             fis = new FileInputStream("users.txt");
-            oin = new ObjectInputStream(fis); 
-            users = (Vector<User>) oin.readObject();
+            oin = new ObjectInputStream(fis);
+            users = (List<User>) oin.readObject();
             oin.close();
             fis.close();
         }
@@ -372,14 +372,14 @@ public class Database implements Serializable {
         catch (ClassNotFoundException e) {
             users = new Vector<>();
             System.err.println("users.txt: ClassNotFoundException");
-        }   
+        }
     }
-    
+
     private static void loadMarks() {
         try {
             fis = new FileInputStream("marks.txt");
-            oin = new ObjectInputStream(fis); 
-            marks = (Vector<Mark>) oin.readObject();
+            oin = new ObjectInputStream(fis);
+            marks = (List<Mark>) oin.readObject();
             oin.close();
             fis.close();
         }
@@ -392,12 +392,12 @@ public class Database implements Serializable {
             System.err.println("marks.txt: ClassNotFoundException");
         }
     }
-    
+
     private static void loadCourses() {
         try {
             fis = new FileInputStream("courses.txt");
-            oin = new ObjectInputStream(fis); 
-            courses = (Vector<Course>) oin.readObject();
+            oin = new ObjectInputStream(fis);
+            courses = (List<Course>) oin.readObject();
             oin.close();
             fis.close();
         }
@@ -410,12 +410,12 @@ public class Database implements Serializable {
             System.err.println("courses.txt: IOException");
         }
     }
-    
+
     private static void loadNews() {
         try {
             fis = new FileInputStream("news.txt");
-            oin = new ObjectInputStream(fis); 
-            news = (Vector<News>) oin.readObject();
+            oin = new ObjectInputStream(fis);
+            news = (List<News>) oin.readObject();
             oin.close();
             fis.close();
         }
@@ -428,12 +428,12 @@ public class Database implements Serializable {
             System.err.println("news.txt: IOException");
         }
     }
-    
+
     private static void loadMessages() {
         try {
             fis = new FileInputStream("messages.txt");
-            oin = new ObjectInputStream(fis); 
-            messages = (Vector<Message>) oin.readObject();
+            oin = new ObjectInputStream(fis);
+            messages = (List<Message>) oin.readObject();
             oin.close();
             fis.close();
         }
@@ -446,12 +446,12 @@ public class Database implements Serializable {
             System.err.println("messages.txt: ClassNotFoundException");
         }
     }
-    
+
     private static void loadFiles() {
         try {
             fis = new FileInputStream("files.txt");
-            oin = new ObjectInputStream(fis); 
-            files = (Vector<File>) oin.readObject();
+            oin = new ObjectInputStream(fis);
+            files = (List<File>) oin.readObject();
             oin.close();
             fis.close();
         }
@@ -468,8 +468,8 @@ public class Database implements Serializable {
     private static void loadBooks() {
         try {
             fis = new FileInputStream("books.txt");
-            oin = new ObjectInputStream(fis); 
-            books = (HashSet<Book>) oin.readObject();
+            oin = new ObjectInputStream(fis);
+            books = (Set<Book>) oin.readObject();
             oin.close();
             fis.close();
         }
@@ -486,8 +486,8 @@ public class Database implements Serializable {
     private static void loadStudentReg() {
         try {
             fis = new FileInputStream("studentReg.txt");
-            oin = new ObjectInputStream(fis); 
-            studentRegistration = (HashMap<String, Course>) oin.readObject();
+            oin = new ObjectInputStream(fis);
+            studentRegistration = (Map<String, Course>) oin.readObject();
             oin.close();
             fis.close();
         }
@@ -500,12 +500,12 @@ public class Database implements Serializable {
             System.err.println("studentReg.txt: ClassNotFoundException");
         }
     }
-    
+
     private static void loadOrders() {
         try {
             fis = new FileInputStream("orders.txt");
-            oin = new ObjectInputStream(fis); 
-            orders = (HashMap<String, Book>) oin.readObject();
+            oin = new ObjectInputStream(fis);
+            orders = (Map<String, Book>) oin.readObject();
             oin.close();
             fis.close();
         }
@@ -518,11 +518,11 @@ public class Database implements Serializable {
             System.err.println("orders.txt: ClassNotFoundException");
         }
     }
-    
+
     private static void loadComplaints() {
         try {
             fis = new FileInputStream("complaints.txt");
-            oin = new ObjectInputStream(fis); 
+            oin = new ObjectInputStream(fis);
             complaints = (List<Complaint>) oin.readObject();
             oin.close();
             fis.close();
@@ -536,11 +536,11 @@ public class Database implements Serializable {
             System.err.println("complaints.txt: ClassNotFoundException");
         }
     }
-    
+
     private static void loadSupportRequests() {
         try {
             fis = new FileInputStream("supportRequests.txt");
-            oin = new ObjectInputStream(fis); 
+            oin = new ObjectInputStream(fis);
             supportRequests = (List<SupportRequest>) oin.readObject();
             oin.close();
             fis.close();
@@ -554,11 +554,11 @@ public class Database implements Serializable {
             System.err.println("supportRequests.txt: ClassNotFoundException");
         }
     }
-    
+
     private static void loadResearchPapers() {
         try {
             fis = new FileInputStream("researchPapers.txt");
-            oin = new ObjectInputStream(fis); 
+            oin = new ObjectInputStream(fis);
             researchPapers = (List<ResearchPaper>) oin.readObject();
             oin.close();
             fis.close();
@@ -572,11 +572,11 @@ public class Database implements Serializable {
             System.err.println("researchPapers.txt: ClassNotFoundException");
         }
     }
-    
+
     private static void loadResearchProjects() {
         try {
             fis = new FileInputStream("researchProjects.txt");
-            oin = new ObjectInputStream(fis); 
+            oin = new ObjectInputStream(fis);
             researchProjects = (List<ResearchProject>) oin.readObject();
             oin.close();
             fis.close();
@@ -590,11 +590,11 @@ public class Database implements Serializable {
             System.err.println("researchProjects.txt: ClassNotFoundException");
         }
     }
-    
+
     private static void loadResearchJournals() {
         try {
             fis = new FileInputStream("researchJournals.txt");
-            oin = new ObjectInputStream(fis); 
+            oin = new ObjectInputStream(fis);
             researchJournals = (List<ResearchJournal>) oin.readObject();
             oin.close();
             fis.close();
