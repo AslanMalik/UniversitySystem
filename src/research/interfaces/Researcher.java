@@ -1,7 +1,8 @@
-package interfaces;
+package research.interfaces;
 
-import models.*;
-import exceptions.*;
+import research.models.*;
+import research.models.ResearchPaper;
+import research.exceptions.*;
 
 import java.util.*;
 

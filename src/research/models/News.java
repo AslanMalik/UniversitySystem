@@ -1,4 +1,4 @@
-package models;
+package research.models;
 
 import java.io.Serializable;
 import java.util.*;

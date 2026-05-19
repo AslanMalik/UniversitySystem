@@ -1,7 +1,7 @@
-package models;
+package research.models;
 
-import interfaces.Researcher;
-import exceptions.NotResearcherException;
+import research.interfaces.Researcher;
+import research.exceptions.NotResearcherException;
 
 import java.io.Serializable;
 import java.util.*;

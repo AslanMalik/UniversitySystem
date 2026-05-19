@@ -1,6 +1,6 @@
-package comparators;
+package research.comparators;
 
-import models.ResearchPaper;
+import research.models.ResearchPaper;
 import java.util.Comparator;
 
 public class ByCitationsComparator implements Comparator<ResearchPaper> {

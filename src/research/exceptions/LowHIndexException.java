@@ -1,4 +1,4 @@
-package exceptions;
+package research.exceptions;
 
 public class LowHIndexException extends Exception {
     public LowHIndexException(String message) {

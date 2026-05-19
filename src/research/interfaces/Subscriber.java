@@ -1,7 +1,10 @@
-package interfaces;
+package research.interfaces;
 
-import models.ResearchPaper;
+import research.models.ResearchPaper;
+import research.models.ResearchPaper;
 
 public interface Subscriber {
     void update(ResearchPaper paper);
+
+//    void update(research.models.ResearchPaper researchPaper);
 }

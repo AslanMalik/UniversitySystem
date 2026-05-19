@@ -1,6 +1,6 @@
-package models;
+package research.models;
 
-import interfaces.Researcher;
+import research.interfaces.Researcher;
 
 import java.io.Serializable;
 import java.util.*;

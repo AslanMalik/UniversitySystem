@@ -1,10 +1,10 @@
-package models;
+package research.models;
 
-import enums.CitationFormat;
-import exceptions.LowHIndexException;
-import exceptions.NotResearcherException;
-import interfaces.Researcher;
-import interfaces.Subscriber;
+import research.enums.CitationFormat;
+import research.exceptions.LowHIndexException;
+import research.exceptions.NotResearcherException;
+import research.interfaces.Researcher;
+import research.interfaces.Subscriber;
 
 import java.util.*;
 

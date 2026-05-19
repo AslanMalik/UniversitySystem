@@ -516,9 +516,260 @@ public class Tester {
                             }
                         }
                     } else if(u instanceof Manager) {
+                        boolean flag = true;
+                        while(flag) {
+                            Manager mgr = (Manager) u;
+                            System.out.println("/--------------------Manager's mode--------------------/");
+                            System.out.println(
+                                "    [1]          View students\n" +
+                                "    [2]          Approve registration\n" +
+                                "    [3]          Assign teacher to course\n" +
+                                "    [4]          Add course\n" +
+                                "    [5]          Statistical report\n" +
+                                "    [6]          Manage news\n" +
+                                "    [7]          View requests\n" +
+                                "    [0]          Log out\n");
+
+                            int chosen = Integer.parseInt(reader.readLine());
+                            switch(chosen) {
+                                case 1:
+                                    System.out.println(mgr.infoStudents());
+                                    break;
+                                case 2:
+                                    System.out.println("Enter student ID: ");
+                                    String studentId = reader.readLine();
+                                    System.out.println("Enter course ID: ");
+                                    String courseId = reader.readLine();
+                                    System.out.println("Enter action (ACCEPT/REJECT): ");
+                                    String approve = reader.readLine();
+                                    System.out.println(mgr.approveRegistration(studentId, courseId, approve));
+                                    Database.save();
+                                    break;
+                                case 3:
+                                    System.out.println("Enter course ID: ");
+                                    String cId = reader.readLine();
+                                    System.out.println("Enter teacher name: ");
+                                    String tName = reader.readLine();
+                                    mgr.assignCourseToTeachers(cId, tName);
+                                    Database.save();
+                                    System.out.println("Teacher assigned.");
+                                    break;
+                                case 4:
+                                    System.out.println("Enter course name: ");
+                                    String cName = reader.readLine();
+                                    System.out.println("Enter credits: ");
+                                    int credits = Integer.parseInt(reader.readLine());
+                                    System.out.println("Enter course ID: ");
+                                    String newCourseId = reader.readLine();
+                                    mgr.createCourse(cName, credits, newCourseId);
+                                    Database.save();
+                                    System.out.println("Course added.");
+                                    break;
+                                case 5:
+                                    System.out.println("=== Statistical Report ===");
+                                    System.out.println("Max score: " + mgr.getMaxScore());
+                                    System.out.println("Min score: " + mgr.getMinScore());
+                                    System.out.println("Avg score: " + mgr.getAvgScore());
+                                    System.out.println("Retakes:   " + mgr.retakeCount());
+                                    System.out.println("\nStudents by GPA:");
+                                    System.out.println(mgr.orderStudentsByGPA());
+                                    break;
+                                case 6:
+                                    System.out.println("Enter news ID: ");
+                                    String newsId = reader.readLine();
+                                    System.out.println("Enter title: ");
+                                    String newsTitle = reader.readLine();
+                                    System.out.println("Enter text: ");
+                                    String newsText = reader.readLine();
+                                    mgr.addNews(newsId, newsTitle, newsText);
+                                    Database.save();
+                                    System.out.println("News added.");
+                                    break;
+                                case 7:
+                                    System.out.println("=== Pending Registration Requests ===");
+                                    System.out.println(mgr.viewRequests());
+                                    break;
+                                case 0:
+                                    flag = false;
+                                    break;
+                            }
+                        }
                     } else if(u instanceof Admin) {
+                        boolean flag = true;
+                        while(flag) {
+                            Admin adm = (Admin) u;
+                            System.out.println("/--------------------Admin's mode--------------------/");
+                            System.out.println(
+                                "    [1]          Add user\n" +
+                                "    [2]          Remove user\n" +
+                                "    [3]          Update user\n" +
+                                "    [4]          View logs\n" +
+                                "    [0]          Log out\n");
+
+                            int chosen = Integer.parseInt(reader.readLine());
+                            switch(chosen) {
+                                case 1:
+                                    System.out.println("Select type (1-Student, 2-Teacher, 3-Manager, 4-Librarian): ");
+                                    int uType = Integer.parseInt(reader.readLine());
+                                    System.out.println("Enter name: ");
+                                    String uName = reader.readLine();
+                                    System.out.println("Enter surname: ");
+                                    String uSurname = reader.readLine();
+                                    System.out.println("Enter birth date: ");
+                                    String uBirth = reader.readLine();
+                                    System.out.println("Enter phone: ");
+                                    String uPhone = reader.readLine();
+                                    System.out.println("Enter email: ");
+                                    String uEmail = reader.readLine();
+                                    System.out.println("Enter password: ");
+                                    String uPass = reader.readLine();
+                                    if(uType == 1) {
+                                        System.out.println("Enter student ID: ");
+                                        String uid = reader.readLine();
+                                        System.out.println("Enter year of study: ");
+                                        int year = Integer.parseInt(reader.readLine());
+                                        adm.createStudent(uName, uSurname, uBirth, uPhone, uEmail, uPass, uid, year);
+                                    } else if(uType == 2) {
+                                        System.out.println("Enter experience: ");
+                                        String exp = reader.readLine();
+                                        adm.createTeacher(uName, uSurname, uBirth, uPhone, uEmail, uPass, exp);
+                                    } else if(uType == 3) {
+                                        adm.createManager(uName, uSurname, uBirth, uPhone, uEmail, uPass);
+                                    } else if(uType == 4) {
+                                        adm.createLibrarian(uName, uSurname, uBirth, uPhone, uEmail, uPass);
+                                    }
+                                    Database.save();
+                                    System.out.println("User added.");
+                                    break;
+                                case 2:
+                                    System.out.println("Enter login of user to remove: ");
+                                    String removeLogin = reader.readLine();
+                                    if(adm.deleteUser(removeLogin)) {
+                                        System.out.println("User removed.");
+                                    } else {
+                                        System.out.println("User not found.");
+                                    }
+                                    Database.save();
+                                    break;
+                                case 3:
+                                    System.out.println("=== All Users ===");
+                                    System.out.println(adm.getUsers());
+                                    break;
+                                case 4:
+                                    System.out.println("=== Log Files ===");
+                                    adm.seeLogFiles();
+                                    System.out.println(Database.logFiles);
+                                    break;
+                                case 0:
+                                    flag = false;
+                                    break;
+                            }
+                        }
                     } else if(u instanceof Librarian) {
+                        boolean flag = true;
+                        while(flag) {
+                            Librarian lib = (Librarian) u;
+                            System.out.println("/--------------------Librarian's mode--------------------/");
+                            System.out.println(
+                                "    [1]          View books\n" +
+                                "    [2]          Add book\n" +
+                                "    [3]          Remove book\n" +
+                                "    [0]          Log out\n");
+
+                            int chosen = Integer.parseInt(reader.readLine());
+                            switch(chosen) {
+                                case 1:
+                                    System.out.println("=== Books ===");
+                                    int bi = 0;
+                                    for(Book book : Database.books) {
+                                        bi++;
+                                        System.out.println(bi + ") " + book);
+                                    }
+                                    break;
+                                case 2:
+                                    System.out.println("Enter book title: ");
+                                    String bTitle = reader.readLine();
+                                    System.out.println("Enter book ID: ");
+                                    String bId = reader.readLine();
+                                    System.out.println("Enter author: ");
+                                    String bAuthor = reader.readLine();
+                                    lib.addBook(bTitle, bId, bAuthor);
+                                    Database.save();
+                                    System.out.println("Book added.");
+                                    break;
+                                case 3:
+                                    System.out.println("Enter book ID to remove: ");
+                                    String removeId = reader.readLine();
+                                    lib.removeBook(removeId);
+                                    Database.save();
+                                    System.out.println("Book removed.");
+                                    break;
+                                case 0:
+                                    flag = false;
+                                    break;
+                            }
+                        }
                     } else if(u instanceof TechSupportSpecialist) {
+                        boolean flag = true;
+                        while(flag) {
+                            TechSupportSpecialist techSpec = (TechSupportSpecialist) u;
+                            System.out.println("/--------------------Tech Support mode--------------------/");
+                            System.out.println(
+                                "    [1]          View new orders\n" +
+                                "    [2]          Accept order\n" +
+                                "    [3]          Reject order\n" +
+                                "    [4]          View done orders\n" +
+                                "    [0]          Log out\n");
+
+                            int chosen = Integer.parseInt(reader.readLine());
+                            switch(chosen) {
+                                case 1:
+                                    System.out.println("=== New Requests ===");
+                                    int ri = 0;
+                                    for(SupportRequest r : techSpec.viewNewRequests()) {
+                                        ri++;
+                                        System.out.println(ri + ") " + r);
+                                    }
+                                    break;
+                                case 2:
+                                    System.out.println("Enter request ID to accept: ");
+                                    String acceptId = reader.readLine();
+                                    for(SupportRequest r : Database.supportRequests) {
+                                        if(r.getId().equals(acceptId)) {
+                                            techSpec.updateRequestStatus(r, RequestStatus.DONE);
+                                            System.out.println("Request accepted and marked as done.");
+                                            break;
+                                        }
+                                    }
+                                    Database.save();
+                                    break;
+                                case 3:
+                                    System.out.println("Enter request ID to reject: ");
+                                    String rejectId = reader.readLine();
+                                    for(SupportRequest r : Database.supportRequests) {
+                                        if(r.getId().equals(rejectId)) {
+                                            techSpec.updateRequestStatus(r, RequestStatus.REJECTED);
+                                            System.out.println("Request rejected.");
+                                            break;
+                                        }
+                                    }
+                                    Database.save();
+                                    break;
+                                case 4:
+                                    System.out.println("=== Done Requests ===");
+                                    int di = 0;
+                                    for(SupportRequest r : Database.supportRequests) {
+                                        if(r.getStatus() == RequestStatus.DONE) {
+                                            di++;
+                                            System.out.println(di + ") " + r);
+                                        }
+                                    }
+                                    break;
+                                case 0:
+                                    flag = false;
+                                    break;
+                            }
+                        }
                     }
                 } else {
                     System.out.println("Wrong password.");
