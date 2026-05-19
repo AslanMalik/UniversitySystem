@@ -1,0 +1,56 @@
+package proj.models.utils;
+
+import java.io.Serializable;
+import java.util.Date;
+
+public class File implements Serializable {
+
+    private String fileName;
+    private String courseId;
+    private String description;
+    private Date postDate;
+
+    public File() {
+
+    }
+
+    public File(String fileName, String courseId, String description) {
+        this.fileName = fileName;
+        this.courseId = courseId;
+        this.description = description;
+        this.postDate = new Date();
+    }
+
+    public String getFileName() {
+        return this.fileName;
+    }
+
+    public void setFileName(String fileName) {
+        this.fileName = fileName;
+    }
+
+    public String getCourseId() {
+        return this.courseId;
+    }
+
+    public void setCourseId(String courseId) {
+        this.courseId = courseId;
+    }
+
+    public String getDescription() {
+        return this.description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Date getPostDate() {
+        return this.postDate;
+    }
+
+    public void setPostDate(Date postDate) {
+        this.postDate = postDate;
+    }
+
+}

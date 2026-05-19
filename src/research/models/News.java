@@ -1,5 +1,6 @@
-package models;
+package research.models;
 
+import proj.models.research.ResearchPaper;
 import java.io.Serializable;
 import java.util.*;
 

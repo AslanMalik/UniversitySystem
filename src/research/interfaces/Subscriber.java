@@ -1,4 +1,4 @@
-package interfaces;
+package research.interfaces;
 
 import models.ResearchPaper;
 

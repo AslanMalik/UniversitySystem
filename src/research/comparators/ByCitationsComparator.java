@@ -1,4 +1,4 @@
-package comparators;
+package research.comparators;
 
 import models.ResearchPaper;
 import java.util.Comparator;
