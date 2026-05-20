@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"proj"},{"l":"research.comparators"},{"l":"research.enums"},{"l":"research.exceptions"},{"l":"research.interfaces"},{"l":"research.models"},{"l":"university.enums"},{"l":"university.exceptions"},{"l":"university.interfaces"},{"l":"university.models"}];updateSearchResults();
